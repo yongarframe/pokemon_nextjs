@@ -1,8 +1,12 @@
+"use client";
 import "./globals.css";
 import ClientWrapper from "./ClientWrapper";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function RootLayout({ children }) {
+  const router = useRouter();
+
   return (
     <html lang="ko">
       <body>
@@ -14,7 +18,7 @@ export default function RootLayout({ children }) {
           <Link href={"/favorite"}>찜목록</Link>
           <div>
             <input
-              // onChange={(e) => navigate(`/search?pokemon=${e.target.value}`)}
+              onChange={(e) => router.push(`/search?pokemon=${e.target.value}`)}
               className="border-b border-[darkgray] px-2 w-[120px]"
             ></input>
             <span>🔎</span>
